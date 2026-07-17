@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motiv Dance — Orlando's Premier Hip Hop Dance Studio</title>
+  <meta name="description" content="Motiv Dance is Orlando's premiere all-hip-hop and street styles dance studio in Longwood, FL. Drop-in classes Mon–Fri 6PM–10PM. As seen on NBC's World of Dance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav id="nav" class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1433538273599-QR6NKEKI6HOZKMBX5ZU4/motiv_logo_final.png?format=1500w" alt="Motiv Dance" class="nav-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about"       class="nav-link">About</a></li>
+        <li><a href="#classes"     class="nav-link">Classes</a></li>
+        <li><a href="#instructors" class="nav-link">Instructors</a></li>
+        <li><a href="#pricing"     class="nav-link">Pricing</a></li>
+        <li><a href="#contact"     class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#pricing" class="btn btn-primary btn-sm nav-cta">Register Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul>
+      <li><a href="#about"       class="mobile-link">About</a></li>
+      <li><a href="#classes"     class="mobile-link">Classes</a></li>
+      <li><a href="#instructors" class="mobile-link">Instructors</a></li>
+      <li><a href="#pricing"     class="mobile-link">Pricing</a></li>
+      <li><a href="#contact"     class="mobile-link">Contact</a></li>
+    </ul>
+    <a href="#pricing" class="btn btn-primary mobile-cta">Register Now</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-noise"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          As Seen on NBC's World of Dance
+        </div>
+        <h1 class="hero-headline">
+          <span class="hero-line"><span class="hero-line-inner">Move.</span></span>
+          <span class="hero-line"><span class="hero-line-inner text-red">Create.</span></span>
+          <span class="hero-line"><span class="hero-line-inner">Inspire.</span></span>
+        </h1>
+        <p class="hero-sub">Orlando's premiere all-hip-hop &amp; street styles dance studio — drop-in classes every Monday through Friday, no contracts required.</p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary">
+            Register for a Class
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#classes" class="btn btn-outline">View Schedule</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ===== NBC TICKER ===== -->
+  <div class="nbc-strip">
+    <div class="nbc-strip-inner">
+      <span class="nbc-item"><span class="dot"></span>NBC's World of Dance</span>
+      <span class="nbc-item"><span class="dot"></span>30+ World-Class Trainers</span>
+      <span class="nbc-item"><span class="dot"></span>4,000+ Sq Ft Studio</span>
+      <span class="nbc-item"><span class="dot"></span>Longwood, FL</span>
+      <span class="nbc-item"><span class="dot"></span>Mon–Fri 6PM–10PM</span>
+      <span class="nbc-item"><span class="dot"></span>All Skill Levels Welcome</span>
+      <span class="nbc-item"><span class="dot"></span>No Contracts Required</span>
+      <span class="nbc-item"><span class="dot"></span>Guest Choreographers Weekly</span>
+      <!-- duplicate for seamless loop -->
+      <span class="nbc-item"><span class="dot"></span>NBC's World of Dance</span>
+      <span class="nbc-item"><span class="dot"></span>30+ World-Class Trainers</span>
+      <span class="nbc-item"><span class="dot"></span>4,000+ Sq Ft Studio</span>
+      <span class="nbc-item"><span class="dot"></span>Longwood, FL</span>
+      <span class="nbc-item"><span class="dot"></span>Mon–Fri 6PM–10PM</span>
+      <span class="nbc-item"><span class="dot"></span>All Skill Levels Welcome</span>
+      <span class="nbc-item"><span class="dot"></span>No Contracts Required</span>
+      <span class="nbc-item"><span class="dot"></span>Guest Choreographers Weekly</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-img-wrap">
+            <div class="about-img-bg">
+              <svg width="180" height="180" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                <path d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4-1.79 4-4 4-4-1.79-4-4z"/>
+                <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="about-tag">
+            <div class="about-tag-num">10+</div>
+            <div class="about-tag-label">Years of Excellence</div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="eyebrow reveal">About the Studio</span>
+          <h2 class="section-title reveal">Central Florida's <span class="text-red">First</span> of Its Kind</h2>
+          <p class="section-sub reveal">Motiv Dance is Orlando's premiere all-hip-hop and street styles dance studio — and the first studio of its kind in Central Florida. Home to the Motiv Crew, as seen on NBC's World of Dance.</p>
+          <ul class="about-list">
+            <li class="about-list-item reveal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Alumni touring with Janet Jackson, Beyoncé, Justin Bieber, Lady Gaga &amp; more
+            </li>
+            <li class="about-list-item reveal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              30+ world-class trainers from across the U.S. and internationally
+            </li>
+            <li class="about-list-item reveal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Career guidance and professional networking opportunities
+            </li>
+            <li class="about-list-item reveal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Welcoming to all skill levels — beginners to aspiring professionals
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="30"><span class="num">0</span><span class="stat-suffix">+</span></div>
+          <div class="stat-label">World-Class Trainers</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="4000"><span class="num">0</span><span class="stat-suffix">+</span></div>
+          <div class="stat-label">Square Feet</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="5"><span class="num">0</span></div>
+          <div class="stat-label">Days a Week</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" data-target="1"><span class="num">0</span></div>
+          <div class="stat-label">Studio of Its Kind in C. FL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLASSES ===== -->
+  <section id="classes" class="classes section-padding">
+    <div class="container">
+      <span class="eyebrow reveal">What We Offer</span>
+      <h2 class="section-title reveal">Drop-In <span class="text-red">Hip Hop</span> Classes</h2>
+      <p class="section-sub reveal">All classes are open drop-in — no membership or contract required. Show up, check in, and dance.</p>
+
+      <div class="levels-grid">
+        <div class="level-card reveal">
+          <div class="level-num">01</div>
+          <span class="level-badge outline">Beginner</span>
+          <h3 class="level-name">Foundation</h3>
+          <p class="level-desc">Perfect for first-timers. Learn the fundamentals of hip-hop movement, rhythm, and technique in a welcoming, pressure-free environment.</p>
+          <ul class="level-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Basic hip-hop grooves</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Rhythm &amp; musicality</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Body isolation techniques</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Confidence-building combos</li>
+          </ul>
+        </div>
+
+        <div class="level-card featured reveal">
+          <div class="level-num">02</div>
+          <span class="level-badge">Intermediate</span>
+          <h3 class="level-name">Elevation</h3>
+          <p class="level-desc">Push your skills further. Intermediate classes focus on more complex choreography, style development, and performance quality.</p>
+          <ul class="level-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Multi-part choreography</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Style &amp; personality development</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Street style vocabulary</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Performance presence</li>
+          </ul>
+        </div>
+
+        <div class="level-card reveal">
+          <div class="level-num">03</div>
+          <span class="level-badge outline">Advanced</span>
+          <h3 class="level-name">Pro Track</h3>
+          <p class="level-desc">Train like a professional. Advanced classes are designed for aspiring commercial dancers pursuing industry-level performance skills.</p>
+          <ul class="level-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Commercial-level choreography</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Industry-style training</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Networking opportunities</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Career guidance</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Schedule -->
+      <div class="schedule-strip reveal">
+        <div class="schedule-header">
+          <h3>Weekly Schedule</h3>
+          <span style="font-size:12px;color:var(--muted);">Follow @motivdance for live updates</span>
+        </div>
+        <div class="schedule-days">
+          <div class="schedule-day">
+            <div class="schedule-day-name">Monday</div>
+            <div class="schedule-time">6:00 PM – 10:00 PM</div>
+            <div class="schedule-note">Hip Hop + Guest Nights</div>
+          </div>
+          <div class="schedule-day">
+            <div class="schedule-day-name">Tuesday</div>
+            <div class="schedule-time">6:00 PM – 10:00 PM</div>
+            <div class="schedule-note">All Levels Open</div>
+          </div>
+          <div class="schedule-day">
+            <div class="schedule-day-name">Wednesday</div>
+            <div class="schedule-time">6:00 PM – 10:00 PM</div>
+            <div class="schedule-note">All Levels Open</div>
+          </div>
+          <div class="schedule-day">
+            <div class="schedule-day-name">Thursday</div>
+            <div class="schedule-time">6:00 PM – 10:00 PM</div>
+            <div class="schedule-note">Guest Choreographers</div>
+          </div>
+          <div class="schedule-day">
+            <div class="schedule-day-name">Friday</div>
+            <div class="schedule-time">6:00 PM – 10:00 PM</div>
+            <div class="schedule-note">Hip Hop + Specials</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTRUCTORS ===== -->
+  <section id="instructors" class="section-padding">
+    <div class="container">
+      <div class="instructors-intro">
+        <span class="eyebrow reveal">The Faculty</span>
+        <h2 class="section-title reveal">30+ <span class="text-red">World-Class</span> Trainers</h2>
+        <p class="section-sub reveal">We bring in top choreographers from across the U.S. and internationally — including artists from the Kinjaz and other renowned companies.</p>
+      </div>
+    </div>
+
+    <div class="instructors-marquee">
+      <div class="instructors-track">
+        <!-- Row 1 -->
+        <div class="instructor-card"><div class="instructor-avatar">VN</div><div class="instructor-name">Vinh Nguyen</div><div class="instructor-cred">Kinjaz</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">MS</div><div class="instructor-name">Mike Song</div><div class="instructor-cred">Kinjaz</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">MB</div><div class="instructor-name">Megan Batoon</div><div class="instructor-cred">Choreographer</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">MT</div><div class="instructor-name">Matt Steffanina</div><div class="instructor-cred">YouTube Sensation</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">GC</div><div class="instructor-name">Guest Choreo</div><div class="instructor-cred">Select Nights</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">IC</div><div class="instructor-name">Intl. Artists</div><div class="instructor-cred">Workshops</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">PR</div><div class="instructor-name">Pro Roster</div><div class="instructor-cred">30+ Trainers</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">WC</div><div class="instructor-name">World-Class</div><div class="instructor-cred">Instructors</div></div>
+        <!-- Duplicate for loop -->
+        <div class="instructor-card"><div class="instructor-avatar">VN</div><div class="instructor-name">Vinh Nguyen</div><div class="instructor-cred">Kinjaz</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">MS</div><div class="instructor-name">Mike Song</div><div class="instructor-cred">Kinjaz</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">MB</div><div class="instructor-name">Megan Batoon</div><div class="instructor-cred">Choreographer</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">MT</div><div class="instructor-name">Matt Steffanina</div><div class="instructor-cred">YouTube Sensation</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">GC</div><div class="instructor-name">Guest Choreo</div><div class="instructor-cred">Select Nights</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">IC</div><div class="instructor-name">Intl. Artists</div><div class="instructor-cred">Workshops</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">PR</div><div class="instructor-name">Pro Roster</div><div class="instructor-cred">30+ Trainers</div></div>
+        <div class="instructor-card"><div class="instructor-avatar">WC</div><div class="instructor-name">World-Class</div><div class="instructor-cred">Instructors</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALUMNI ARTISTS ===== -->
+  <section class="artists section-padding">
+    <div class="container">
+      <div class="artists-intro">
+        <span class="eyebrow reveal">Our Alumni</span>
+        <h2 class="section-title reveal">Trained Here. <span class="text-red">Toured the World.</span></h2>
+        <p class="section-sub reveal" style="margin: 0 auto;">Motiv alumni have gone on to perform with some of the biggest names in the music industry.</p>
+      </div>
+      <div class="artists-grid">
+        <div class="artist-pill reveal">Beyoncé</div>
+        <div class="artist-pill reveal">Janet Jackson</div>
+        <div class="artist-pill reveal">Justin Bieber</div>
+        <div class="artist-pill reveal">Lady Gaga</div>
+        <div class="artist-pill reveal">Chris Brown</div>
+        <div class="artist-pill reveal">Taylor Swift</div>
+        <div class="artist-pill reveal">NBC World of Dance</div>
+        <div class="artist-pill reveal">Global Tours</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="pricing section-padding">
+    <div class="container">
+      <span class="eyebrow reveal">Simple Pricing</span>
+      <h2 class="section-title reveal">No Contracts. <span class="text-red">Just Dance.</span></h2>
+      <p class="section-sub reveal">Show up when you want. Pre-register online to save your spot and get the best rate.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="price-name">Drop-In · Online</div>
+          <div class="price-amount"><sup>$</sup>12<span class="price-period">.50</span></div>
+          <p class="price-desc">Pre-register online before class to lock in the lower rate and guarantee your spot.</p>
+          <ul class="price-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Single class access</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Any level — Beg / Int / Adv</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Guaranteed spot</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Best available rate</li>
+          </ul>
+          <a href="https://motivdance.com/classes" target="_blank" rel="noopener" class="btn btn-outline btn-full">Register Online</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-name">Class Pass</div>
+          <div class="price-amount"><sup>$</sup>50<span class="price-period">/pass</span></div>
+          <p class="price-desc">Buy a multi-class pass for the best value. Ideal for dancers who come regularly throughout the month.</p>
+          <ul class="price-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Multiple classes included</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Best per-class value</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Any level, any night</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No expiration hassle</li>
+          </ul>
+          <a href="https://motivdance.com/classes" target="_blank" rel="noopener" class="btn btn-primary btn-full">Get a Pass</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-name">Drop-In · At Door</div>
+          <div class="price-amount"><sup>$</sup>15</div>
+          <p class="price-desc">Walk in and pay at the door. Space is limited — pre-registration is strongly recommended.</p>
+          <ul class="price-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Single class access</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Any level</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Pay at front desk</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Subject to availability</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-full">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="pricing-note reveal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Classes are drop-in only — no memberships or contracts. Most attendees are teens and adults. Music is uncensored. Check-in required at the front desk before class. Follow <strong>&nbsp;@motivdance&nbsp;</strong> on Instagram for the live weekly schedule and special event announcements.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FACILITY ===== -->
+  <section class="section-padding">
+    <div class="container">
+      <span class="eyebrow reveal">The Space</span>
+      <h2 class="section-title reveal">Built for <span class="text-red">Serious</span> Dancers</h2>
+      <p class="section-sub reveal">Over 4,000 square feet of premier training space near Big Tree Park, overlooking the lake in Longwood, FL.</p>
+
+      <div class="facility-grid">
+        <div class="facility-card reveal">
+          <div class="facility-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="facility-name">4,000+ Sq Ft</h3>
+          <p class="facility-desc">A massive dedicated dance floor giving you the room to move, practice, and perform at full capacity.</p>
+        </div>
+        <div class="facility-card reveal">
+          <div class="facility-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </div>
+          <h3 class="facility-name">Pro Sound System</h3>
+          <p class="facility-desc">High-quality audio setup so you feel every beat and train in the closest environment to a real stage.</p>
+        </div>
+        <div class="facility-card reveal">
+          <div class="facility-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="facility-name">VIP Lounge</h3>
+          <p class="facility-desc">Relax and connect between classes in our dedicated VIP lounge — a space to network and unwind.</p>
+        </div>
+        <div class="facility-card reveal">
+          <div class="facility-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3 class="facility-name">Free WiFi</h3>
+          <p class="facility-desc">Stay connected, stream music references, and share your progress on social media right from the studio.</p>
+        </div>
+        <div class="facility-card reveal">
+          <div class="facility-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="facility-name">2 Restrooms</h3>
+          <p class="facility-desc">Clean, convenient facilities so you can focus entirely on your training without any interruptions.</p>
+        </div>
+        <div class="facility-card reveal">
+          <div class="facility-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3 class="facility-name">Scenic Location</h3>
+          <p class="facility-desc">Located near Big Tree Park, Longwood, FL — overlooking the lake. A unique and inspiring environment to train.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <span class="eyebrow reveal">Ready to Dance?</span>
+        <h2 class="cta-title reveal">Don't Just Watch. <span class="text-red">Move.</span></h2>
+        <p class="cta-sub reveal">Drop in any night, Monday through Friday. No contracts. No excuses.</p>
+        <div class="cta-actions reveal">
+          <a href="https://motivdance.com/classes" target="_blank" rel="noopener" class="btn btn-primary">
+            Register for a Class
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <span class="eyebrow reveal">Get in Touch</span>
+      <h2 class="section-title reveal">Find <span class="text-red">Us</span></h2>
+
+      <div class="contact-grid" style="margin-top:48px;">
+        <div class="contact-info">
+          <div class="contact-item reveal">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Address</div>
+              <div class="contact-value">810 Waterway Place, Suite 1010<br>Longwood, FL 32750</div>
+            </div>
+          </div>
+          <div class="contact-item reveal">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Classes</div>
+              <div class="contact-value">Monday – Friday<br>6:00 PM – 10:00 PM</div>
+            </div>
+          </div>
+          <div class="contact-item reveal">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.4 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Social</div>
+              <div class="contact-value"><a href="https://instagram.com/motivdance" target="_blank" rel="noopener">@motivdance</a></div>
+            </div>
+          </div>
+          <div class="contact-socials reveal">
+            <a href="https://instagram.com/motivdance" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal">
+          <h3 class="contact-form-title">Send Us a Message</h3>
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@email.com" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="interest">I'm Interested In</label>
+              <select id="interest" name="interest">
+                <option value="">Select…</option>
+                <option value="beginner">Beginner Classes</option>
+                <option value="intermediate">Intermediate Classes</option>
+                <option value="advanced">Advanced / Pro Track</option>
+                <option value="workshop">Guest Choreographer Workshop</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about yourself or ask a question…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="contact-submit">
+              <span class="btn-text">Send Message</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <div class="form-success" id="form-success" style="display:none;margin-top:16px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Message sent! We'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1433538273599-QR6NKEKI6HOZKMBX5ZU4/motiv_logo_final.png?format=1500w" alt="Motiv Dance" style="height:60px;width:auto;margin-bottom:14px;">
+          <p class="footer-tagline">Orlando's premiere all-hip-hop &amp; street styles dance studio. Home of the Motiv Crew — as seen on NBC's World of Dance.</p>
+          <div class="contact-socials" style="margin-top:20px;">
+            <a href="https://instagram.com/motivdance" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#instructors">Instructors</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Visit Us</div>
+          <ul class="footer-links">
+            <li><a href="#">810 Waterway Place #1010</a></li>
+            <li><a href="#">Longwood, FL 32750</a></li>
+            <li><a href="#classes">Mon–Fri · 6PM–10PM</a></li>
+            <li><a href="https://instagram.com/motivdance" target="_blank" rel="noopener">@motivdance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 Motiv Dance. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="https://instagram.com/motivdance" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
