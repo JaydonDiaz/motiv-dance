@@ -269,6 +269,54 @@ if (contactForm) {
 }
 
 /* ============================================================
+   CLASS REGISTRATION FORM (classes.html)
+   ============================================================ */
+const registerForm    = document.getElementById('register-form');
+const registerSuccess = document.getElementById('register-success');
+const registerSubmit  = document.getElementById('register-submit');
+
+if (registerForm) {
+  registerForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name  = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    if (!name)  { shakeEl(document.getElementById('reg-name'));  return; }
+    if (!email) { shakeEl(document.getElementById('reg-email')); return; }
+
+    registerSubmit.disabled = true;
+    registerSubmit.querySelector('.btn-text').textContent = 'Reserving…';
+
+    await new Promise(r => setTimeout(r, 900));
+
+    registerForm.style.display = 'none';
+    registerSuccess.style.display = 'flex';
+
+    if (!prefersReducedMotion) {
+      gsap.fromTo(registerSuccess,
+        { opacity: 0, y: 12, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power3.out' }
+      );
+    }
+  });
+}
+
+/* ============================================================
+   WEEKLY SCHEDULE GRID — staggered reveal (classes.html)
+   ============================================================ */
+ScrollTrigger.create({
+  trigger: '.schedule-grid',
+  start: 'top 85%',
+  once: true,
+  onEnter: () => {
+    if (prefersReducedMotion) return;
+    gsap.fromTo('.schedule-col',
+      { opacity: 0, y: 36 },
+      { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out' }
+    );
+  },
+});
+
+/* ============================================================
    SCHEDULE DAY HOVER GLOW
    ============================================================ */
 document.querySelectorAll('.schedule-day').forEach(day => {

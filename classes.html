@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Class — Motiv Dance</title>
+  <meta name="description" content="Reserve your spot in a Motiv Dance hip hop class. Drop-in classes Mon–Fri 6PM–10PM for beginner, intermediate, and advanced dancers. Pre-register online to lock in your rate.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ============================================================
+       CLASSES / REGISTER PAGE
+       ============================================================ */
+
+    /* ---- Page hero ---- */
+    .page-hero {
+      position: relative;
+      padding: calc(var(--nav-h) + 64px) 0 72px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0a0a 0%, #140508 50%, #0a0a0a 100%);
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(200,90,54,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
+    .page-hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(40px, 7vw, 76px);
+      font-weight: 700; text-transform: uppercase;
+      line-height: 1.02; margin: 6px 0 20px;
+    }
+    .page-hero-sub {
+      font-size: 16px; color: var(--muted);
+      line-height: 1.75; max-width: 560px; margin: 0 auto;
+    }
+    .page-hero .pricing-note { max-width: 640px; margin: 28px auto 0; text-align: left; }
+
+    /* ---- Weekly schedule detail grid ---- */
+    .schedule-section { background: var(--bg-dark); }
+    .schedule-grid {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .schedule-col { background: var(--surface); display: flex; flex-direction: column; }
+    .schedule-col-head {
+      padding: 20px 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    .schedule-col-day {
+      font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .schedule-col-note {
+      font-size: 10px; color: var(--red); text-transform: uppercase;
+      letter-spacing: .06em; margin-top: 4px;
+    }
+    .class-slot { padding: 16px; border-bottom: 1px solid var(--border); transition: background .25s; }
+    .class-slot:last-child { border-bottom: none; }
+    .class-slot-time {
+      font-family: 'Oswald', sans-serif; font-size: 11px; color: var(--muted);
+      letter-spacing: .05em; margin-bottom: 6px;
+    }
+    .class-slot-name { font-size: 13px; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
+    .class-slot-level {
+      display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 3px 9px; border-radius: 999px;
+    }
+    .class-slot-level.beginner     { background: rgba(200,90,54,.12); color: var(--red); }
+    .class-slot-level.intermediate { background: rgba(255,255,255,.08); color: rgba(255,255,255,.75); }
+    .class-slot-level.advanced     { background: var(--red); color: #fff; }
+    .class-slot-level.open         { background: transparent; border: 1px solid var(--border-h); color: var(--muted); }
+
+    /* ---- Registration form ---- */
+    .register-section .contact-form-wrap { max-width: 640px; margin: 56px auto 0; }
+    .register-note {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+      background: rgba(200,90,54,.05); border: 1px solid rgba(200,90,54,.15);
+      border-radius: var(--radius); padding: 14px 16px; margin-top: 22px;
+    }
+    .register-note svg { color: var(--red); flex-shrink: 0; margin-top: 1px; }
+
+    /* ---- Compact CTA band ---- */
+    .mini-cta {
+      background: var(--bg-dark); border-top: 1px solid var(--border);
+      padding: 64px 0; text-align: center;
+    }
+    .mini-cta h2 {
+      font-family: 'Oswald', sans-serif; font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .mini-cta p { font-size: 15px; color: var(--muted); margin-bottom: 28px; }
+
+    @media (max-width: 768px) {
+      .schedule-grid { grid-template-columns: 1fr; }
+      .schedule-col-head { text-align: left; }
+      .register-section .contact-form-wrap { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav id="nav" class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1433538273599-QR6NKEKI6HOZKMBX5ZU4/motiv_logo_final.png?format=1500w" alt="Motiv Dance" class="nav-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about"       class="nav-link">About</a></li>
+        <li><a href="index.html#classes"     class="nav-link">Classes</a></li>
+        <li><a href="index.html#instructors" class="nav-link">Instructors</a></li>
+        <li><a href="index.html#pricing"     class="nav-link">Pricing</a></li>
+        <li><a href="index.html#contact"     class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#register" class="btn btn-primary btn-sm nav-cta">Register Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul>
+      <li><a href="index.html#about"       class="mobile-link">About</a></li>
+      <li><a href="index.html#classes"     class="mobile-link">Classes</a></li>
+      <li><a href="index.html#instructors" class="mobile-link">Instructors</a></li>
+      <li><a href="index.html#pricing"     class="mobile-link">Pricing</a></li>
+      <li><a href="index.html#contact"     class="mobile-link">Contact</a></li>
+    </ul>
+    <a href="#register" class="btn btn-primary mobile-cta">Register Now</a>
+  </div>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <span class="eyebrow reveal">Book a Class</span>
+      <h1 class="reveal">Reserve Your <span class="text-red">Spot</span></h1>
+      <p class="page-hero-sub reveal">Drop-in hip hop classes for beginner, intermediate, and advanced dancers, of all ages. Class size is limited — pre-register below to guarantee your spot and lock in the best rate.</p>
+      <div class="pricing-note reveal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Unregistered dancers are subject to an additional door charge and are only admitted as space allows. Check in at the front desk before class. Follow <strong>&nbsp;@motivdance&nbsp;</strong> on Instagram for live schedule updates.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WEEKLY SCHEDULE ===== -->
+  <section id="schedule" class="schedule-section section-padding">
+    <div class="container">
+      <span class="eyebrow reveal">Open Hip Hop Classes</span>
+      <h2 class="section-title reveal">This Week's <span class="text-red">Schedule</span></h2>
+      <p class="section-sub reveal">Monday through Friday, 6PM–10PM. All three levels run every night, plus a guest or open-floor slot at 9PM. Pick a class below, then reserve your spot in the form.</p>
+
+      <div class="schedule-grid">
+        <div class="schedule-col reveal">
+          <div class="schedule-col-head">
+            <div class="schedule-col-day">Monday</div>
+            <div class="schedule-col-note">Guest Night</div>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">6:00 PM</div>
+            <div class="class-slot-name">Foundation</div>
+            <span class="class-slot-level beginner">Beginner</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">7:00 PM</div>
+            <div class="class-slot-name">Elevation</div>
+            <span class="class-slot-level intermediate">Intermediate</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">8:00 PM</div>
+            <div class="class-slot-name">Pro Track</div>
+            <span class="class-slot-level advanced">Advanced</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">9:00 PM</div>
+            <div class="class-slot-name">Guest Choreographer Night</div>
+            <span class="class-slot-level open">Open</span>
+          </div>
+        </div>
+
+        <div class="schedule-col reveal">
+          <div class="schedule-col-head">
+            <div class="schedule-col-day">Tuesday</div>
+            <div class="schedule-col-note">All Levels Open</div>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">6:00 PM</div>
+            <div class="class-slot-name">Foundation</div>
+            <span class="class-slot-level beginner">Beginner</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">7:00 PM</div>
+            <div class="class-slot-name">Elevation</div>
+            <span class="class-slot-level intermediate">Intermediate</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">8:00 PM</div>
+            <div class="class-slot-name">Pro Track</div>
+            <span class="class-slot-level advanced">Advanced</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">9:00 PM</div>
+            <div class="class-slot-name">Open Floor Session</div>
+            <span class="class-slot-level open">Open</span>
+          </div>
+        </div>
+
+        <div class="schedule-col reveal">
+          <div class="schedule-col-head">
+            <div class="schedule-col-day">Wednesday</div>
+            <div class="schedule-col-note">All Levels Open</div>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">6:00 PM</div>
+            <div class="class-slot-name">Foundation</div>
+            <span class="class-slot-level beginner">Beginner</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">7:00 PM</div>
+            <div class="class-slot-name">Elevation</div>
+            <span class="class-slot-level intermediate">Intermediate</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">8:00 PM</div>
+            <div class="class-slot-name">Pro Track</div>
+            <span class="class-slot-level advanced">Advanced</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">9:00 PM</div>
+            <div class="class-slot-name">Open Floor Session</div>
+            <span class="class-slot-level open">Open</span>
+          </div>
+        </div>
+
+        <div class="schedule-col reveal">
+          <div class="schedule-col-head">
+            <div class="schedule-col-day">Thursday</div>
+            <div class="schedule-col-note">Guest Choreographers</div>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">6:00 PM</div>
+            <div class="class-slot-name">Foundation</div>
+            <span class="class-slot-level beginner">Beginner</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">7:00 PM</div>
+            <div class="class-slot-name">Elevation</div>
+            <span class="class-slot-level intermediate">Intermediate</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">8:00 PM</div>
+            <div class="class-slot-name">Pro Track</div>
+            <span class="class-slot-level advanced">Advanced</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">9:00 PM</div>
+            <div class="class-slot-name">Guest Choreographer Workshop</div>
+            <span class="class-slot-level open">Open</span>
+          </div>
+        </div>
+
+        <div class="schedule-col reveal">
+          <div class="schedule-col-head">
+            <div class="schedule-col-day">Friday</div>
+            <div class="schedule-col-note">Hip Hop + Specials</div>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">6:00 PM</div>
+            <div class="class-slot-name">Foundation</div>
+            <span class="class-slot-level beginner">Beginner</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">7:00 PM</div>
+            <div class="class-slot-name">Elevation</div>
+            <span class="class-slot-level intermediate">Intermediate</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">8:00 PM</div>
+            <div class="class-slot-name">Pro Track</div>
+            <span class="class-slot-level advanced">Advanced</span>
+          </div>
+          <div class="class-slot">
+            <div class="class-slot-time">9:00 PM</div>
+            <div class="class-slot-name">Friday Cypher Session</div>
+            <span class="class-slot-level open">Open</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="pricing section-padding">
+    <div class="container">
+      <span class="eyebrow reveal">Simple Pricing</span>
+      <h2 class="section-title reveal">No Contracts. <span class="text-red">Just Dance.</span></h2>
+      <p class="section-sub reveal">Show up when you want. Pre-register online to save your spot and get the best rate.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="price-name">Drop-In · Online</div>
+          <div class="price-amount"><sup>$</sup>12<span class="price-period">.50</span></div>
+          <p class="price-desc">Pre-register online before class to lock in the lower rate and guarantee your spot.</p>
+          <ul class="price-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Single class access</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Any level — Beg / Int / Adv</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Guaranteed spot</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Best available rate</li>
+          </ul>
+          <a href="#register" class="btn btn-outline btn-full">Register Online</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-name">Class Pass</div>
+          <div class="price-amount"><sup>$</sup>50<span class="price-period">/pass</span></div>
+          <p class="price-desc">Buy a multi-class pass for the best value. Ideal for dancers who come regularly throughout the month.</p>
+          <ul class="price-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Multiple classes included</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Best per-class value</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Any level, any night</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No expiration hassle</li>
+          </ul>
+          <a href="#register" class="btn btn-primary btn-full">Get a Pass</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-name">Drop-In · At Door</div>
+          <div class="price-amount"><sup>$</sup>15</div>
+          <p class="price-desc">Walk in and pay at the door. Space is limited — pre-registration is strongly recommended.</p>
+          <ul class="price-features">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Single class access</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Any level</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Pay at front desk</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Subject to availability</li>
+          </ul>
+          <a href="#register" class="btn btn-outline btn-full">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REGISTER ===== -->
+  <section id="register" class="register-section section-padding">
+    <div class="container">
+      <span class="eyebrow reveal">Reserve Your Spot</span>
+      <h2 class="section-title reveal">Register for a <span class="text-red">Class</span></h2>
+      <p class="section-sub reveal">Fill out the form below and we'll hold your spot. Pick your day, pick your level, and show up ready to move.</p>
+
+      <div class="contact-form-wrap reveal">
+        <h3 class="contact-form-title">Class Registration</h3>
+        <form id="register-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reg-name">Full Name</label>
+              <input type="text" id="reg-name" name="name" placeholder="Jane Smith" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="reg-email">Email Address</label>
+              <input type="email" id="reg-email" name="email" placeholder="jane@email.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reg-phone">Phone Number</label>
+              <input type="tel" id="reg-phone" name="phone" placeholder="(407) 555-0123" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="reg-day">Class Day</label>
+              <select id="reg-day" name="day">
+                <option value="">Select…</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reg-level">Class / Level</label>
+              <select id="reg-level" name="level">
+                <option value="">Select…</option>
+                <option value="foundation">6:00 PM — Foundation (Beginner)</option>
+                <option value="elevation">7:00 PM — Elevation (Intermediate)</option>
+                <option value="pro-track">8:00 PM — Pro Track (Advanced)</option>
+                <option value="open">9:00 PM — Open / Guest Night</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reg-pass">Rate</label>
+              <select id="reg-pass" name="pass">
+                <option value="">Select…</option>
+                <option value="dropin-online">Drop-In Online — $12.50</option>
+                <option value="class-pass">Class Pass — $50</option>
+                <option value="dropin-door">Drop-In At Door — $15</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reg-message">Anything We Should Know?</label>
+            <textarea id="reg-message" name="message" rows="4" placeholder="First time? Injuries? Let us know…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="register-submit">
+            <span class="btn-text">Reserve My Spot</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          <div class="form-success" id="register-success" style="display:none;margin-top:16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            You're in! We'll see you on the floor — check in at the front desk before class.
+          </div>
+        </form>
+        <div class="register-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Registering online guarantees your spot and locks in the lower rate. Most attendees are teens and adults — music is uncensored.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MINI CTA ===== -->
+  <section class="mini-cta">
+    <div class="container">
+      <h2 class="reveal">Questions Before You <span class="text-red">Book?</span></h2>
+      <p class="reveal">Reach out and we'll help you find the right class to start with.</p>
+      <a href="index.html#contact" class="btn btn-outline reveal">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1433538273599-QR6NKEKI6HOZKMBX5ZU4/motiv_logo_final.png?format=1500w" alt="Motiv Dance" style="height:60px;width:auto;margin-bottom:14px;">
+          <p class="footer-tagline">Orlando's premiere all-hip-hop &amp; street styles dance studio. Home of the Motiv Crew — as seen on NBC's World of Dance.</p>
+          <div class="contact-socials" style="margin-top:20px;">
+            <a href="https://instagram.com/motivdance" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#classes">Classes</a></li>
+            <li><a href="index.html#instructors">Instructors</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Visit Us</div>
+          <ul class="footer-links">
+            <li><a href="#">810 Waterway Place #1010</a></li>
+            <li><a href="#">Longwood, FL 32750</a></li>
+            <li><a href="classes.html">Mon–Fri · 6PM–10PM</a></li>
+            <li><a href="https://instagram.com/motivdance" target="_blank" rel="noopener">@motivdance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 Motiv Dance. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="https://instagram.com/motivdance" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
