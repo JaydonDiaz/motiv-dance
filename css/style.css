@@ -245,34 +245,15 @@ input:focus, textarea:focus, select:focus {
    ABOUT
    ============================================================ */
 .about-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  display: block;
 }
-.about-visual {
-  position: relative;
+.about-text {
+  max-width: 640px; margin: 0 auto; text-align: center;
 }
-.about-img-wrap {
-  aspect-ratio: 4/5; border-radius: var(--radius-lg); overflow: hidden;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-}
-.about-img-bg {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, #1a0810 0%, #0d0d0d 50%, #120a15 100%);
-  display: flex; align-items: center; justify-content: center;
-}
-.about-img-bg svg { opacity: .07; }
-.about-tag {
-  position: absolute; bottom: -24px; right: -24px;
-  background: var(--red); color: #fff;
-  border-radius: var(--radius-lg); padding: 24px 28px;
-  font-family: 'Oswald', sans-serif;
-}
-.about-tag-num { font-size: 42px; font-weight: 700; line-height: 1; }
-.about-tag-label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; margin-top: 4px; }
-.about-text { padding-left: 16px; }
-.about-list { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+.about-list { margin-top: 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .about-list-item {
   display: flex; align-items: flex-start; gap: 14px;
+  max-width: 480px; text-align: left;
   font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.6;
 }
 .about-list-item svg { color: var(--red); flex-shrink: 0; margin-top: 2px; }
@@ -591,9 +572,6 @@ input:focus, textarea:focus, select:focus {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .about-visual { max-width: 480px; }
-  .about-text { padding-left: 0; }
   .stats-row { grid-template-columns: repeat(2,1fr); }
   .artists-grid { grid-template-columns: repeat(3,1fr); }
 }
@@ -610,7 +588,6 @@ input:focus, textarea:focus, select:focus {
   .facility-grid { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .about-tag { bottom: -16px; right: -8px; }
 }
 
 @media (max-width: 540px) {
