@@ -250,6 +250,7 @@ input:focus, textarea:focus, select:focus {
 .about-text {
   max-width: 640px; margin: 0 auto; text-align: center;
 }
+#about .section-sub { text-align: left; margin-left: auto; margin-right: auto; }
 .about-list { margin: 28px auto 0; max-width: 520px; display: flex; flex-direction: column; gap: 14px; }
 .about-list-item {
   display: flex; align-items: flex-start; gap: 14px;
