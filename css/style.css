@@ -537,12 +537,14 @@ input:focus, textarea:focus, select:focus {
 .contact-value a:hover { color: var(--red); }
 .contact-socials { display: flex; gap: 12px; margin-top: 8px; }
 .social-btn {
-  width: 40px; height: 40px; border-radius: 50%;
+  height: 40px; padding: 0 16px 0 14px; border-radius: 999px;
   background: var(--surface); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
+  display: inline-flex; align-items: center; gap: 9px;
   color: var(--muted); transition: all .25s;
 }
 .social-btn:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+.social-btn-label { font-size: 13px; font-weight: 600; color: var(--text); white-space: nowrap; }
+.social-btn:hover .social-btn-label { color: var(--red); }
 .contact-form-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; }
 .contact-form-title { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; margin-bottom: 24px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
