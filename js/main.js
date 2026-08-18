@@ -85,10 +85,7 @@ if (!prefersReducedMotion) {
       { opacity: 1, y: 0, duration: 0.75 }, 1.0)
     .fromTo('.hero-actions',
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6 }, 1.2)
-    .fromTo('.hero-scroll',
-      { opacity: 0 },
-      { opacity: 1, duration: 0.8 }, 1.7);
+      { opacity: 1, y: 0, duration: 0.6 }, 1.2);
 
   /* Hero background subtle drift */
   gsap.to('.hero-bg', {
@@ -97,7 +94,7 @@ if (!prefersReducedMotion) {
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
   });
 } else {
-  gsap.set(['.hero-badge', '.hero-line-inner', '.hero-sub', '.hero-actions', '.hero-scroll'],
+  gsap.set(['.hero-badge', '.hero-line-inner', '.hero-sub', '.hero-actions'],
     { opacity: 1, y: 0, yPercent: 0 });
 }
 
