@@ -333,3 +333,35 @@ if (strip) {
   strip.addEventListener('mouseenter', () => strip.style.animationPlayState = 'paused');
   strip.addEventListener('mouseleave', () => strip.style.animationPlayState = 'running');
 }
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+(function () {
+  const root = document.documentElement;
+  const STORAGE_KEY = 'motiv-theme';
+
+  function currentTheme() {
+    return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      root.setAttribute('data-theme', 'light');
+    } else {
+      root.removeAttribute('data-theme');
+    }
+    document.querySelectorAll('.theme-toggle').forEach((btn) => {
+      btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+    });
+  }
+
+  document.querySelectorAll('.theme-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = currentTheme() === 'light' ? 'dark' : 'light';
+      try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+      applyTheme(next);
+      document.dispatchEvent(new CustomEvent('themechange', { detail: { theme: next } }));
+    });
+  });
+})();

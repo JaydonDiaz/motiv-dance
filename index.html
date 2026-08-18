@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>try{if(localStorage.getItem('motiv-theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Motiv Dance — Orlando's Premier Hip Hop Dance Studio</title>
   <meta name="description" content="Motiv Dance is Orlando's premiere all-hip-hop and street styles dance studio in Longwood, FL. Drop-in classes Mon–Fri 6PM–10PM. As seen on NBC's World of Dance.">
@@ -26,6 +27,10 @@
         <li><a href="#contact"     class="nav-link">Contact</a></li>
       </ul>
       <a href="classes.html" class="btn btn-primary btn-sm nav-cta">Register Now</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode">
+        <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </button>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -42,6 +47,12 @@
       <li><a href="#contact"     class="mobile-link">Contact</a></li>
     </ul>
     <a href="classes.html" class="btn btn-primary mobile-cta">Register Now</a>
+    <button class="theme-toggle theme-toggle-mobile" id="theme-toggle-mobile" type="button" aria-label="Switch to light mode">
+      <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      <span class="theme-label-dark">Light Mode</span>
+      <span class="theme-label-light">Dark Mode</span>
+    </button>
   </div>
 
   <!-- ===== HERO ===== -->

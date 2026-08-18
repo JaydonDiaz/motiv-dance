@@ -4,6 +4,11 @@
 
 :root {
   --bg:        #080808;
+  --bg-rgb:    8,8,8;
+  /* --bg-dark stays fixed across both themes on purpose — the hero, footer,
+     and CTA band are always-dark brand chrome. Only the readable "page
+     canvas" tokens below swap; .classes/.pricing/.artists use --surface-2
+     instead so they still get a distinct alternating band in both themes. */
   --bg-dark:   #040404;
   --surface:   #111111;
   --surface-2: #1c1c1c;
@@ -13,6 +18,7 @@
   --red-dark:  #a04328;
   --red-glow:  rgba(200,90,54,0.22);
   --text:      #f0f0f0;
+  --text-rgb:  240,240,240;
   --muted:     #888;
   --muted-2:   #555;
   --nav-h:     72px;
@@ -20,6 +26,23 @@
   --radius-lg: 20px;
   --ease:      cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+html[data-theme="light"] {
+  --bg:        #faf9f7;
+  --bg-rgb:    250,249,247;
+  --surface:   #ffffff;
+  --surface-2: #f1efeb;
+  --border:    rgba(0,0,0,0.09);
+  --border-h:  rgba(0,0,0,0.2);
+  --red:       #a04328;
+  --red-dark:  #7a3220;
+  --red-glow:  rgba(160,67,40,0.18);
+  --text:      #17130f;
+  --text-rgb:  23,19,15;
+  --muted:     #5c5650;
+  --muted-2:   #8a8278;
+}
+html { transition: background var(--ease); }
 
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -98,7 +121,7 @@ input:focus, textarea:focus, select:focus {
   border-bottom: 1px solid transparent;
 }
 .nav.scrolled {
-  background: rgba(4,4,4,0.92);
+  background: rgba(var(--bg-rgb),0.92);
   backdrop-filter: blur(20px);
   border-color: var(--border);
   box-shadow: 0 4px 40px rgba(0,0,0,0.5);
@@ -125,7 +148,35 @@ input:focus, textarea:focus, select:focus {
 }
 .nav-link:hover, .nav-link.active { color: #fff; }
 .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav.scrolled .nav-link { color: rgba(var(--text-rgb),.7); }
+.nav.scrolled .nav-link:hover, .nav.scrolled .nav-link.active { color: var(--text); }
 .nav-cta { margin-left: 8px; }
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; flex-shrink: 0; margin-left: 8px;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.16);
+  color: #fff; transition: all .25s var(--ease);
+}
+.nav.scrolled .theme-toggle { border-color: rgba(var(--text-rgb),.16); color: var(--text); }
+.theme-toggle:hover { border-color: var(--red); color: var(--red); }
+.theme-toggle .icon-moon { display: block; }
+.theme-toggle .icon-sun { display: none; }
+html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+html[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+.theme-label-dark, .theme-label-light { display: none; }
+.theme-toggle-mobile {
+  width: auto; height: auto; margin: 20px 0 0; padding: 12px 24px;
+  border-radius: 999px; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  /* lives inside .mobile-menu, which is always-dark regardless of theme */
+  border-color: rgba(255,255,255,.16);
+  color: #fff;
+}
+.theme-toggle-mobile .theme-label-dark { display: inline; }
+html[data-theme="light"] .theme-toggle-mobile .theme-label-dark { display: none; }
+html[data-theme="light"] .theme-toggle-mobile .theme-label-light { display: inline; }
 
 /* Hamburger */
 .hamburger {
@@ -134,8 +185,9 @@ input:focus, textarea:focus, select:focus {
 }
 .hamburger span {
   display: block; height: 2px; background: #fff; border-radius: 2px;
-  transition: transform .3s var(--ease), opacity .3s;
+  transition: transform .3s var(--ease), opacity .3s, background .25s;
 }
+.nav.scrolled .hamburger span { background: var(--text); }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -269,7 +321,7 @@ input:focus, textarea:focus, select:focus {
 .about-list-item {
   display: flex; align-items: flex-start; gap: 14px;
   text-align: left;
-  font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.6;
+  font-size: 14px; color: rgba(var(--text-rgb),.75); line-height: 1.6;
 }
 .about-list-item svg { color: var(--red); flex-shrink: 0; margin-top: 2px; }
 
@@ -294,7 +346,7 @@ input:focus, textarea:focus, select:focus {
 /* ============================================================
    CLASSES
    ============================================================ */
-.classes { background: var(--bg-dark); }
+.classes { background: var(--surface-2); }
 .levels-grid {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 56px;
 }
@@ -321,7 +373,7 @@ input:focus, textarea:focus, select:focus {
 .level-badge.outline { background: transparent; border: 1px solid var(--border-h); color: var(--muted); }
 .level-num {
   font-family: 'Oswald', sans-serif; font-size: 72px; font-weight: 700;
-  line-height: 1; color: rgba(255,255,255,.04); margin-bottom: -20px;
+  line-height: 1; color: rgba(var(--text-rgb),.04); margin-bottom: -20px;
   user-select: none;
 }
 .level-name {
@@ -332,7 +384,7 @@ input:focus, textarea:focus, select:focus {
 .level-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .level-features li {
   display: flex; align-items: center; gap: 10px;
-  font-size: 13px; color: rgba(255,255,255,.7);
+  font-size: 13px; color: rgba(var(--text-rgb),.7);
 }
 .level-features li svg { color: var(--red); flex-shrink: 0; }
 
@@ -359,7 +411,7 @@ input:focus, textarea:focus, select:focus {
   text-transform: uppercase; color: var(--red); margin-bottom: 12px;
 }
 .schedule-time {
-  font-size: 13px; color: rgba(255,255,255,.8); margin-bottom: 6px; line-height: 1.5;
+  font-size: 13px; color: rgba(var(--text-rgb),.8); margin-bottom: 6px; line-height: 1.5;
 }
 .schedule-note { font-size: 11px; color: var(--muted); }
 
@@ -408,7 +460,7 @@ input:focus, textarea:focus, select:focus {
 /* ============================================================
    PRICING
    ============================================================ */
-.pricing { background: var(--bg-dark); }
+.pricing { background: var(--surface-2); }
 .pricing-grid {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 56px;
 }
@@ -441,7 +493,7 @@ input:focus, textarea:focus, select:focus {
 .price-period { font-size: 13px; color: var(--muted); margin-left: 4px; }
 .price-desc { font-size: 13px; color: var(--muted); margin: 14px 0 28px; line-height: 1.6; }
 .price-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
-.price-features li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,.75); }
+.price-features li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(var(--text-rgb),.75); }
 .price-features li svg { color: var(--red); flex-shrink: 0; }
 .pricing-note {
   display: flex; align-items: flex-start; gap: 10px;
@@ -475,7 +527,7 @@ input:focus, textarea:focus, select:focus {
 /* ============================================================
    ALUMNI / ARTISTS
    ============================================================ */
-.artists { background: var(--bg-dark); }
+.artists { background: var(--surface-2); }
 .artists-intro { text-align: center; max-width: 600px; margin: 0 auto 56px; }
 .artists-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
@@ -484,11 +536,11 @@ input:focus, textarea:focus, select:focus {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 999px; padding: 14px 20px;
   text-align: center; font-size: 13px; font-weight: 600;
-  color: rgba(255,255,255,.7); letter-spacing: .04em;
+  color: rgba(var(--text-rgb),.7); letter-spacing: .04em;
   transition: border-color .25s, color .25s, background .25s, transform .25s;
 }
 .artist-pill:hover {
-  border-color: var(--red); color: #fff;
+  border-color: var(--red); color: var(--red);
   background: rgba(200,90,54,.06); transform: scale(1.04);
 }
 
