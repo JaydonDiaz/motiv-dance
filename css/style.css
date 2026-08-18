@@ -109,6 +109,12 @@ input:focus, textarea:focus, select:focus {
 }
 .btn-outline:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
 .btn-full { width: 100%; justify-content: center; }
+/* Hero sits on a pinned-dark background regardless of theme — its buttons
+   stay pinned to the dark-mode-tuned colors too, same reasoning as above. */
+.hero .btn-primary { background: #c85a36; }
+.hero .btn-primary:hover { background: #a04328; }
+.hero .btn-outline { border-color: rgba(255,255,255,.16); color: #f0f0f0; }
+.hero .btn-outline:hover { border-color: #c85a36; color: #c85a36; }
 .btn-sm { padding: 10px 22px; font-size: 13px; }
 
 /* ============================================================
@@ -117,6 +123,8 @@ input:focus, textarea:focus, select:focus {
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   height: var(--nav-h);
+  background: rgba(var(--bg-rgb),0.16);
+  backdrop-filter: blur(8px);
   transition: background .4s, backdrop-filter .4s, border-color .4s, box-shadow .4s;
   border-bottom: 1px solid transparent;
 }
@@ -266,7 +274,11 @@ html[data-theme="light"] .theme-toggle-mobile .theme-label-light { display: inli
   background: rgba(200,90,54,0.1); border: 1px solid rgba(200,90,54,0.25);
   border-radius: 999px; margin-bottom: 36px;
   font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--red);
+  /* Fixed, not var(--red): the hero background is pinned dark regardless of
+     theme, so its text needs to stay pinned to the dark-mode-tuned colors
+     rather than following the reactive tokens (which would go dark-on-dark
+     in light mode). Same reasoning for .hero-headline/.hero-sub/.hero .btn-outline below. */
+  color: #c85a36;
 }
 .hero-badge svg { flex-shrink: 0; }
 .hero-headline {
@@ -275,12 +287,14 @@ html[data-theme="light"] .theme-toggle-mobile .theme-label-light { display: inli
   font-weight: 700; text-transform: uppercase;
   line-height: .92; letter-spacing: -.01em;
   overflow: hidden;
+  color: #f0f0f0;
 }
 .hero-line { display: block; overflow: hidden; }
 .hero-line-inner { display: block; }
+.hero .text-red { color: #c85a36; }
 .hero-sub {
   font-size: clamp(15px, 2vw, 18px);
-  color: var(--muted); max-width: 480px;
+  color: #888; max-width: 480px;
   line-height: 1.75; margin: 28px 0 0;
 }
 .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; flex-shrink: 0; }
