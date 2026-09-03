@@ -335,6 +335,137 @@ if (strip) {
 }
 
 /* ============================================================
+   INSTRUCTOR OVERLAY — click a card in the marquee to see their
+   experience and a short bio, with a link through to the full
+   instructor roster page.
+   ============================================================ */
+const INSTRUCTORS = [
+  {
+    name: 'Vinh Nguyen',
+    cred: 'Kinjaz',
+    img: 'https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1538967996439-1P4KEF4XL8MVYVWFHGDV/vinh+nguyen.jpg',
+    experience: '10+ Years Teaching',
+    bio: 'A member of the internationally recognized dance company Kinjaz, Vinh brings sharp, high-precision choreography and years of competitive stage experience to every class. Expect fast combos, clean lines, and a relentless focus on musicality.',
+  },
+  {
+    name: 'Mike Song',
+    cred: 'Kinjaz',
+    img: 'https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1539817019469-XLBL1ZNETWL2ZJKYDT2U/Mike-Song-1-750x658.jpg',
+    experience: '12+ Years Teaching',
+    bio: 'One of the most sought-after choreographers to come out of the Kinjaz movement, Mike blends technical hip-hop foundations with big, performance-ready choreography. His classes push dancers to perform every combo like it’s for an audience.',
+  },
+  {
+    name: 'Megan Batoon',
+    cred: 'Choreographer',
+    img: 'https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1539814395330-1GPRFFDIYRM47FQGYVCN/21150303_10209973033898158_5993305855445508246_n.jpg',
+    experience: '8+ Years Teaching',
+    bio: 'A YouTube choreographer and content creator with a large online following, Megan is known for musicality-driven routines and an infectious teaching energy. Her classes are equal parts technique drill and full-out performance.',
+  },
+  {
+    name: 'Matt Steffanina',
+    cred: 'YouTube Sensation',
+    img: 'https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1539814599815-7Z15RTSQ2Q8BMRX63BN9/Matt+Steffanina.jpg',
+    experience: '15+ Years Teaching',
+    bio: 'One of the most-followed hip-hop choreographers online, Matt has built a career teaching dancers of every level through viral tutorials and packed studio classes. Expect clean choreography, clear breakdowns, and routines built to be shared.',
+  },
+  {
+    name: 'Janelle Ginestra',
+    cred: 'World of Dance',
+    img: 'https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1539814738288-B00PHCHA22XGVYJO963R/Janelle-Ginestra-1.jpg',
+    experience: '15+ Years Teaching',
+    bio: 'A World of Dance mentor and founder of her own dance company, Janelle is known for emotionally driven choreography and a teaching style that pushes dancers to perform with intention, not just execute steps.',
+  },
+  {
+    name: 'Sienna Lalau',
+    cred: 'World of Dance',
+    img: 'https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1538969273890-ZN2QF3GQ6M1PB15RK6LM/Screenshot_20180822-143100.jpg',
+    experience: '9+ Years Teaching',
+    bio: 'A World of Dance alum with a reputation for sharp, detail-obsessed choreography, Sienna’s classes emphasize control, texture, and hitting every count with full commitment.',
+  },
+  {
+    name: 'Josh Price',
+    cred: 'Choreographer',
+    img: 'https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1539817387724-7PKAUJJ4YD39TBAID6GC/Josh+Price.jpg',
+    experience: '7+ Years Teaching',
+    bio: 'A versatile choreographer known for blending hip-hop fundamentals with contemporary movement quality, Josh’s classes focus on building strong technical foundations dancers can carry into any style.',
+  },
+  {
+    name: 'Anthony Lee',
+    cred: 'Kinjaz',
+    img: 'https://images.squarespace-cdn.com/content/v1/5572081fe4b055140a090d13/1538970284281-PKL16NFN9OHMJCF6QUHJ/tRf1n8G2_400x400.jpg',
+    experience: '10+ Years Teaching',
+    bio: 'A Kinjaz member with a background in both competition and commercial work, Anthony teaches high-energy choreography with an emphasis on musicality and stage presence.',
+  },
+];
+
+(function () {
+  const overlay = document.getElementById('instructor-overlay');
+  if (!overlay) return;
+
+  const ioImg      = document.getElementById('io-img');
+  const ioCred     = document.getElementById('io-cred');
+  const ioName     = document.getElementById('io-name');
+  const ioExp      = document.getElementById('io-exp');
+  const ioDesc     = document.getElementById('io-desc');
+  const ioClose    = document.getElementById('instructor-overlay-close');
+  const ioBackdrop = document.getElementById('instructor-overlay-backdrop');
+
+  function openInstructor(data) {
+    ioImg.src = data.img;
+    ioImg.alt = data.name;
+    ioCred.textContent = data.cred;
+    ioName.textContent = data.name;
+    ioExp.textContent = data.experience;
+    ioDesc.textContent = data.bio;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeInstructor() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.instructor-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const name = card.querySelector('.instructor-name')?.textContent.trim();
+      const data = INSTRUCTORS.find((i) => i.name === name);
+      if (data) openInstructor(data);
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  ioClose.addEventListener('click', closeInstructor);
+  ioBackdrop.addEventListener('click', closeInstructor);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeInstructor();
+  });
+})();
+
+/* ============================================================
+   INSTRUCTORS PAGE — staggered reveal (instructors.html)
+   ============================================================ */
+ScrollTrigger.create({
+  trigger: '.instructors-grid',
+  start: 'top 85%',
+  once: true,
+  onEnter: () => {
+    if (prefersReducedMotion) return;
+    gsap.fromTo('.instructor-tile',
+      { opacity: 0, y: 36 },
+      { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' }
+    );
+  },
+});
+
+/* ============================================================
    THEME TOGGLE
    ============================================================ */
 (function () {

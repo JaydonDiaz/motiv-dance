@@ -13,34 +13,9 @@
   <style>
     /* ============================================================
        CLASSES / REGISTER PAGE
+       .page-hero and .mini-cta now live in css/style.css (shared with
+       instructors.html and any other sub-page).
        ============================================================ */
-
-    /* ---- Page hero ---- */
-    .page-hero {
-      position: relative;
-      padding: calc(var(--nav-h) + 64px) 0 72px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0a0a0a 0%, #140508 50%, #0a0a0a 100%);
-      text-align: center;
-    }
-    .page-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(200,90,54,0.14) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .page-hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
-    .page-hero h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(40px, 7vw, 76px);
-      font-weight: 700; text-transform: uppercase;
-      line-height: 1.02; margin: 6px 0 20px;
-    }
-    .page-hero-sub {
-      font-size: 16px; color: var(--muted);
-      line-height: 1.75; max-width: 560px; margin: 0 auto;
-    }
-    .page-hero .pricing-note { max-width: 640px; margin: 28px auto 0; text-align: left; }
 
     /* ---- Weekly schedule detail grid ---- */
     .schedule-section { background: var(--bg-dark); }
@@ -95,17 +70,6 @@
     }
     .register-note svg { color: var(--red); flex-shrink: 0; margin-top: 1px; }
 
-    /* ---- Compact CTA band ---- */
-    .mini-cta {
-      background: var(--bg-dark); border-top: 1px solid var(--border);
-      padding: 64px 0; text-align: center;
-    }
-    .mini-cta h2 {
-      font-family: 'Oswald', sans-serif; font-size: clamp(26px, 4vw, 38px);
-      font-weight: 700; text-transform: uppercase; margin-bottom: 14px;
-    }
-    .mini-cta p { font-size: 15px; color: var(--muted); margin-bottom: 28px; }
-
     @media (max-width: 768px) {
       .schedule-grid { grid-template-columns: 1fr; }
       .schedule-col-head { text-align: left; }
@@ -155,7 +119,6 @@
       <span class="theme-label-dark">Light Mode</span>
       <span class="theme-label-light">Dark Mode</span>
     </button>
-  </div>
   </div>
 
   <!-- ===== PAGE HERO ===== -->
