@@ -641,7 +641,12 @@ html[data-theme="light"] .theme-toggle-mobile .theme-label-light { display: inli
   width: 48px; height: 48px; border-radius: var(--radius);
   background: rgba(200,90,54,.1); border: 1px solid rgba(200,90,54,.2);
   display: flex; align-items: center; justify-content: center;
-  color: var(--red); margin-bottom: 20px;
+  color: var(--red); margin: 0 auto 20px;
+  transition: background .25s, color .25s, border-color .25s, transform .3s;
+}
+.facility-card:hover .facility-icon {
+  background: var(--red); border-color: var(--red); color: var(--surface);
+  transform: scale(1.08) rotate(-4deg);
 }
 .facility-name { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; }
 .facility-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
