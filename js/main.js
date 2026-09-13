@@ -458,12 +458,46 @@ ScrollTrigger.create({
   once: true,
   onEnter: () => {
     if (prefersReducedMotion) return;
-    gsap.fromTo('.instructor-tile',
+    gsap.fromTo('.instructor-tile:not([hidden])',
       { opacity: 0, y: 36 },
       { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' }
     );
   },
 });
+
+/* ============================================================
+   INSTRUCTORS PAGE — show all / show less toggle
+   ============================================================ */
+(function () {
+  const toggleBtn = document.getElementById('instructors-toggle');
+  if (!toggleBtn) return;
+
+  const toggleLabel = document.getElementById('instructors-toggle-label');
+  const moreTiles = document.querySelectorAll('.instructor-tile--more');
+  let expanded = false;
+
+  toggleBtn.addEventListener('click', () => {
+    expanded = !expanded;
+    toggleBtn.setAttribute('aria-expanded', String(expanded));
+
+    if (expanded) {
+      moreTiles.forEach((tile) => { tile.hidden = false; });
+      toggleLabel.textContent = 'Show Less';
+      if (prefersReducedMotion) {
+        gsap.set(moreTiles, { opacity: 1, y: 0 });
+      } else {
+        gsap.fromTo(moreTiles,
+          { opacity: 0, y: 28 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.05, ease: 'power3.out' }
+        );
+      }
+    } else {
+      toggleLabel.textContent = 'Show All 34 Instructors';
+      moreTiles.forEach((tile) => { tile.hidden = true; });
+      toggleBtn.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  });
+})();
 
 /* ============================================================
    THEME TOGGLE

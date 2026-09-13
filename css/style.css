@@ -519,6 +519,11 @@ html[data-theme="light"] .theme-toggle-mobile .theme-label-light { display: inli
 }
 .instructor-tile-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 14px; text-align: left; }
 
+.instructors-show-all { display: flex; justify-content: center; margin-top: 44px; }
+#instructors-toggle { display: inline-flex; align-items: center; gap: 9px; }
+#instructors-toggle-icon { transition: transform .3s; }
+#instructors-toggle[aria-expanded="true"] #instructors-toggle-icon { transform: rotate(180deg); }
+
 /* ============================================================
    INSTRUCTOR OVERLAY
    ============================================================ */
